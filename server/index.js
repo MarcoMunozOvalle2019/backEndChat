@@ -28,6 +28,7 @@ app.use(express.static(join(__dirname, "../client/build")));
 io.on("connection", (socket) => {
   console.log(socket.id);
   socket.on("message", (body) => {
+    console.log('llego',body);
     socket.broadcast.emit("message", {
       body,
       from: socket.id.slice(8),
